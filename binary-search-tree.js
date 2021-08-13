@@ -4,6 +4,10 @@ class BinarySearchTree{
         this.root = null;
     }
 
+    /**
+     * 插入节点
+     * @param {*} key  节点值 
+     */
     insert(key){
         if(this.root == null){
             this.root = new Node(key);
@@ -27,6 +31,25 @@ class BinarySearchTree{
             }
         }
     }
+
+
+    /**
+     * 中序遍历
+     * @param {Function} callback 回调函数
+     */
+    inorderTraverse(callback){
+        this.inorderTraverseNode(this.root,callback);
+    }   
+
+
+    inorderTraverseNode(node,callback){
+        if(node != null){
+            this.inorderTraverseNode(node.left,callback);
+            callback(node.key);
+            this.inorderTraverseNode(node.right,callback);
+        }
+    }
+    
 }
 
 
