@@ -62,3 +62,18 @@ class Node{
         this.right = null; 
     }
 }
+
+
+
+function test(){
+    const tree = new BinarySearchTree();
+    const list = [11,7,15,5,3,9,8,10,13,12,14,20,18,25,6];
+    list.forEach(val => tree.insert(val));
+
+    const printNode = (value) => console.log(value);
+
+    tree.inorderTraverse(printNode);
+
+}
+
+test();
