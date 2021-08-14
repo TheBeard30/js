@@ -42,4 +42,50 @@ class Graph{
             this.adjList.get(w).push(v);
         }
     }
+
+    getVertices(){
+        return this.vertices;
+    }
+
+    getAdjList(){
+        return this.adjList;
+    }
+
+    toString(){
+        let s = '';
+        for(let i = 0; i < this.vertices.length; i++){
+            s += `${this.vertices[i]} -> `;
+            const neighbors = this.adjList.get(this.vertices[i]);
+            for(let j = 0; j < neighbors.length; j++){
+                s += `${neighbors[j]} `;
+            }
+            s += '\n';
+        }
+        return s;
+    }
 }
+
+
+function test(){
+    const graph = new Graph();
+    const vertices = ['A','B','C','D','E','F','G','H','I'];
+    for(let vertex of vertices){
+        graph.addVertex(vertex);
+    }
+
+    graph.addEdge('A','B');
+    graph.addEdge('A','C');
+    graph.addEdge('A','D');
+    graph.addEdge('C','D');
+    graph.addEdge('C','G');
+    graph.addEdge('D','G');
+    graph.addEdge('D','H');
+    graph.addEdge('B','E');
+    graph.addEdge('B','F');
+    graph.addEdge('E','I');
+
+    console.log(graph.toString());
+
+}
+
+test();
