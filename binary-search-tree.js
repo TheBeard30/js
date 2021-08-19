@@ -166,11 +166,12 @@ class BinarySearchTree{
             node.right = this.removeNode(node.right,key);
             return node;
         }else{
+            // 没有左右子节点
             if(node.left == null && node.right == null){
                 node = null;
                 return node;
             }
-
+            // 存在一个左节点或者右节点
             if(node.left == null){
                 node = node.right;
                 return node;
@@ -178,7 +179,7 @@ class BinarySearchTree{
                 node = node.left;
                 return node;
             }
-
+            // 存在左右节点
             const aux = this.minNode(node.right);
             node.key = aux.key;
             node.right = this.removeNode(node.right,aux.key);
