@@ -145,6 +145,46 @@ class BinarySearchTree{
             return true;
         }
     }
+
+
+    /**
+     * 删除一个节点
+     * @param {*} key 
+     */
+    remove(key){
+        this.root = this.removeNode(this.root,key);
+    }
+
+    removeNode(node,key){
+        if(node == null){
+            return null;
+        }
+        if(this.compareFn(key,node.key) == '<'){
+            node.left = this.removeNode(node.left,key);
+            return node;
+        }else if(this.compareFn(key,node.key) == '>'){
+            node.right = this.removeNode(node.right,key);
+            return node;
+        }else{
+            if(node.left == null && node.right == null){
+                node = null;
+                return node;
+            }
+
+            if(node.left == null){
+                node = node.right;
+                return node;
+            }else if(node.right == null){
+                node = node.left;
+                return node;
+            }
+
+            const aux = this.minNode(node.right);
+            node.key = aux.key;
+            node.right = this.removeNode(node.right,aux.key);
+            return node;
+        }
+    }
     
 }
 
