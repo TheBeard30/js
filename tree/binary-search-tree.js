@@ -202,6 +202,7 @@ class Node{
 
 
 
+
 function test(){
     const tree = new BinarySearchTree();
     const list = [11,7,15,5,3,9,8,10,13,12,14,20,18,25,6];
