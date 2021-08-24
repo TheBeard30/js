@@ -1,14 +1,12 @@
+export class BinarySearchTree{
 
-
-class BinarySearchTree{
-
-    defalutCompare = (a,b) => {
+    static defalutCompare = (a,b) => {
         if(a > b) return '>';
         if(a < b) return '<';
         if(a == b) return '=';
     }
 
-    constructor(compareFn = this.defalutCompare){
+    constructor(compareFn = BinarySearchTree.defalutCompare){
         this.root = null;
         this.compareFn = compareFn;
     }
@@ -190,7 +188,7 @@ class BinarySearchTree{
 }
 
 
-class Node{
+export class Node{
     constructor(key){
         this.key = key;
         // 左侧子节点引用
@@ -203,15 +201,15 @@ class Node{
 
 
 
-function test(){
-    const tree = new BinarySearchTree();
-    const list = [11,7,15,5,3,9,8,10,13,12,14,20,18,25,6];
-    list.forEach(val => tree.insert(val));
+// function test(){
+//     const tree = new BinarySearchTree();
+//     const list = [11,7,15,5,3,9,8,10,13,12,14,20,18,25,6];
+//     list.forEach(val => tree.insert(val));
 
-    const printNode = (value) => console.log(value);
+//     const printNode = (value) => console.log(value);
 
-    tree.inorderTraverse(printNode);
+//     tree.inorderTraverse(printNode);
 
-}
+// }
 
-test();
+// test();

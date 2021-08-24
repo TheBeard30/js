@@ -1,18 +1,20 @@
-import {BinarySearchTree} from './binary-search-tree';
+import {BinarySearchTree} from './binary-search-tree.js';
 
 
 
 class AVLTree extends BinarySearchTree{
-    defalutCompare = (a,b) => {
+    static defalutCompare = (a,b) => {
         if(a > b) return '>';
         if(a < b) return '<';
         if(a == b) return '=';
     }
 
-    constructor(compareFn = this.defalutCompare){
+    constructor(compareFn = AVLTree.defalutCompare){
         super(compareFn);
         this.compareFn = compareFn;
         this.root = null;
     }
 
 }
+
+console.log(new AVLTree());
