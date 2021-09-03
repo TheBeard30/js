@@ -1,6 +1,15 @@
 import {BinarySearchTree} from './binary-search-tree.js';
 
 
+const BalanceFactor = {
+    UNBALANCED_RIGHT: 1,
+    SLIGHTLY_UNBALANCED_RIGHT: 2,
+    BALANCED: 3,
+    SLIGHTLY_UNBALANCED_LEFT: 4,
+    UNBALANCED_LEFT: 5
+};
+
+
 
 class AVLTree extends BinarySearchTree{
     static defalutCompare = (a,b) => {
